@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Al-Shahbaz</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; height: 100vh; display: flex; justify-content: center; align-items: center; background: url('https://images.unsplash.com/photo-1521334884684-d80222895322') no-repeat center center/cover; }
+        
+        .selector-box { background: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 20px; width: 350px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h2 { margin-bottom: 20px; color: #333; }
+        
+        .country-list { list-style: none; padding: 0; text-align: left; }
+        .country-list li { padding: 15px; border-bottom: 1px solid #ddd; cursor: pointer; display: flex; align-items: center; }
+        .country-list li:hover { background: #f0f0f0; }
+        .country-list img { width: 25px; margin-right: 15px; }
+        
+        a { text-decoration: none; color: #333; font-weight: 600; display: flex; align-items: center; }
+    </style>
+</head>
+<body>
+
+<div class="selector-box">
+    <h2>Select Your Country</h2>
+    <ul class="country-list">
+        <li><a href="home.html?lang=ur"><img src="https://flagcdn.com/pk.svg" alt="PK"> Pakistan (اردو)</a></li>
+        <li><a href="home.html?lang=en"><img src="https://flagcdn.com/gb.svg" alt="UK"> United Kingdom</a></li>
+        <li><a href="home.html?lang=en"><img src="https://flagcdn.com/us.svg" alt="US"> United States</a></li>
+        <li><a href="home.html?lang=ar"><img src="https://flagcdn.com/ae.svg" alt="UAE"> United Arab Emirates</a></li>
+        <li><a href="home.html?lang=en"><img src="https://flagcdn.com/un.svg" alt="Global"> Global</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

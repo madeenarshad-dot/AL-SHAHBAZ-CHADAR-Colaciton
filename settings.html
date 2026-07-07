@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>👑 MASTER COMMAND CENTER</title>
+    <style>
+        body { background: #1a1a1a; color: #ffd700; font-family: 'Poppins', sans-serif; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; }
+        .card { background: #222; padding: 20px; border-radius: 10px; border: 1px solid #ffd700; }
+        input, select { width: 100%; padding: 10px; margin: 5px 0; background: #333; color: white; border: none; border-radius: 5px; }
+        button { width: 100%; padding: 15px; background: #ffd700; border: none; cursor: pointer; font-weight: bold; margin-top: 10px; font-size: 16px; color: #000; }
+        h1 { text-align: center; color: #ffd700; }
+    </style>
+</head>
+<body>
+
+    <h1>👑 ماسٹر کنٹرول سسٹم (Master Controller)</h1>
+    
+    <div class="grid">
+        <!-- 1. ڈیزائن کنٹرول -->
+        <div class="card">
+            <h3>🎨 ڈیزائن کنٹرول</h3>
+            <label>ویب سائٹ کا رنگ (Theme Color):</label>
+            <input type="color" id="themeColor">
+            
+            <label>فونٹ اسٹائل:</label>
+            <select id="fontStyle">
+                <option value="Arial">Arial</option>
+                <option value="Poppins">Poppins</option>
+                <option value="Courier New">Courier New</option>
+            </select>
+        </div>
+
+        <!-- 2. سسٹم سیٹنگ -->
+        <div class="card">
+            <h3>⚙️ سسٹم سیٹنگ</h3>
+            <label>ویب سائٹ کا نام:</label>
+            <input type="text" id="siteName" placeholder="نام درج کریں">
+            
+            <label>ویب سائٹ کی زبان:</label>
+            <select id="lang">
+                <option value="ur">اردو</option>
+                <option value="en">English</option>
+                <option value="hi">हिंदी</option>
+            </select>
+        </div>
+
+        <!-- 3. ایسٹس کنٹرول -->
+        <div class="card">
+            <h3>🖼️ تصویر مینجمنٹ</h3>
+            <label>ہیرو تصویر کا لنک (URL):</label>
+            <input type="text" id="imgUrl" placeholder="تصویر کا لنک یہاں ڈالیں">
+            
+            <button onclick="saveAll()">تمام حکمرانی محفوظ کریں (Save All)</button>
+            <button onclick="window.location.href='index.html'" style="background:#555; color:white;">ویب سائٹ پر جائیں</button>
+        </div>
+    </div>
+
+<script>
+    function saveAll() {
+        // تمام ڈیٹا کو براؤزر میں محفوظ کرنا
+        localStorage.setItem('themeColor', document.getElementById('themeColor').value);
+        localStorage.setItem('fontStyle', document.getElementById('fontStyle').value);
+        localStorage.setItem('siteName', document.getElementById('siteName').value);
+        localStorage.setItem('lang', document.getElementById('lang').value);
+        localStorage.setItem('heroImg', document.getElementById('imgUrl').value);
+        
+        alert("حکم کی تعمیل ہوئی! تمام سیٹنگز محفوظ ہو گئی ہیں۔");
+    }
+
+    // لوڈ ہوتے وقت پرانی ویلیوز دکھانا
+    window.onload = () => {
+        document.getElementById('themeColor').value = localStorage.getItem('themeColor') || '#0d47a1';
+        document.getElementById('fontStyle').value = localStorage.getItem('fontStyle') || 'Arial';
+        document.getElementById('siteName').value = localStorage.getItem('siteName') || '';
+        document.getElementById('lang').value = localStorage.getItem('lang') || 'ur';
+        document.getElementById('imgUrl').value = localStorage.getItem('heroImg') || '';
+    };
+</script>
+</body>
+</html>

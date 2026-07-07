@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>AL-SHAHBAZ CHADAR HOUSE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        .brand-header { background: #111; color: #d4af37; padding: 20px; text-align: center; }
+        
+        .hero {
+            height: 80vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* یہ پاتھ تب کام کرے گا جب HTML فائل اور assets فولڈر ایک ہی جگہ ہوں */
+            background-image: url('assets/images/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn { 
+            display: inline-block; 
+            padding: 12px 25px; 
+            background: #111; 
+            color: #d4af37; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            margin-top: 15px; 
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="brand-header">
+        <h1>AL-SHAHBAZ CHADAR HOUSE</h1>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>خوش آمدید</h2>
+            <p>ہماری نئی کلیکشن ملاحظہ فرمائیں</p>
+            <a href="#" class="btn">مزید دیکھیں</a>
+        </div>
+    </section>
+
+</body>
+</html>

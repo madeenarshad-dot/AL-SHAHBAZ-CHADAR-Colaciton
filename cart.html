@@ -1,0 +1,129 @@
+<header class="brand-header">
+  <h1>🧣 AL-SHAHBAZ CHADAR HOUSE</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+</header>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<h1>Your Cart 🛒</h1>
+
+<div id="cartItems"></div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let box = document.getElementById("cartItems");
+
+if(cart.length === 0){
+    box.innerHTML = "<h3>Cart is empty</h3>";
+} else {
+    box.innerHTML = cart.map(item => 
+        `<p>🧣 ${item}</p>`
+    ).join("");
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body onload="loadCart()">
+
+<h1>Your Cart</h1>
+
+<div id="cartBox"></div>
+
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body onload="loadCart()">
+
+<h1>Your Cart 🛒</h1>
+
+<div id="cartBox"></div>
+
+<a href="checkout.html"><button>Checkout</button></a>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
+<script src="assets/js/app.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body onload="loadCart()">
+
+<h1>Cart 🛒</h1>
+
+<div id="cartBox"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body onload="loadCart()">
+
+<header>Cart 🛒</header>
+
+<div id="cartBox" class="grid"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body onload="loadCart()">
+
+<header class="brand-header">
+  <h1>🛒 Your Cart</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+</header>
+
+<div id="cartBox" class="product-grid"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supplier Portal | Al-Shahbaz</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+        .container { max-width: 850px; margin: auto; }
+        .btn-box { text-align: center; margin-bottom: 20px; }
+        .lang-btn { cursor: pointer; padding: 8px 15px; border: none; background: #333; color: white; border-radius: 4px; margin: 2px; }
+        
+        /* ہر زبان کا الگ ڈیزائن */
+        .box-en { border: 2px solid #2980b9; background: #ebf5fb; padding: 30px; border-radius: 0 50px 0 50px; }
+        .box-ur { border: 2px solid #27ae60; background: #eafaf1; padding: 30px; border-radius: 50px 0 50px 0; direction: rtl; }
+        .box-hi { border: 2px solid #e67e22; background: #fef5e7; padding: 30px; border-radius: 20px; }
+        .box-tr { border: 2px solid #8e44ad; background: #f4ecf7; padding: 30px; border-radius: 10px 50px 10px 50px; }
+        .box-zh { border: 2px solid #c0392b; background: #fdedec; padding: 30px; border-radius: 50px 10px 50px 10px; }
+        .box-ar { border: 2px solid #f1c40f; background: #fef9e7; padding: 30px; border-radius: 30px; direction: rtl; }
+        
+        .hidden { display: none; }
+        .info-title { font-weight: bold; color: #333; display: block; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="btn-box">
+        <button class="lang-btn" onclick="show('en')">English</button>
+        <button class="lang-btn" onclick="show('ur')">اردو</button>
+        <button class="lang-btn" onclick="show('hi')">हिन्दी</button>
+        <button class="lang-btn" onclick="show('tr')">Türkçe</button>
+        <button class="lang-btn" onclick="show('zh')">中文</button>
+        <button class="lang-btn" onclick="show('ar')">العربية</button>
+    </div>
+
+    <!-- English -->
+    <div id="content-en" class="box-en">
+        <h1>Supplier Portal</h1>
+        <p>Join us to supply premium quality materials. We value long-term trust.</p>
+        <span class="info-title">Manager:</span> Babar Ali<br>
+        <span class="info-title">Contact:</span> 0303-7391681<br>
+        <span class="info-title">WhatsApp:</span> 0316-6479910
+    </div>
+
+    <!-- Urdu -->
+    <div id="content-ur" class="box-ur hidden">
+        <h1>سپلائر پورٹل</h1>
+        <p>ہمارے ساتھ جڑیں اور معیاری اشیاء کی فراہمی میں ہمارا ساتھ دیں۔ ہم اعتماد اور ایمانداری پر یقین رکھتے ہیں۔</p>
+        <span class="info-title">ایڈمن:</span> بابر علی<br>
+        <span class="info-title">رابطہ نمبر:</span> 0303-7391681<br>
+        <span class="info-title">واٹس ایپ:</span> 0316-6479910
+    </div>
+
+    <!-- Hindi -->
+    <div id="content-hi" class="box-hi hidden">
+        <h1>सप्लायर पोर्टल</h1>
+        <p>हमारे साथ जुड़ें और गुणवत्तापूर्ण सामग्री की आपूर्ति करें। हम विश्वास और ईमानदारी में विश्वास रखते हैं।</p>
+        <span class="info-title">एडमिन:</span> बाबर अली<br>
+        <span class="info-title">संपर्क:</span> 0303-7391681<br>
+        <span class="info-title">व्हाट्सएप:</span> 0316-6479910
+    </div>
+
+    <!-- Turkish -->
+    <div id="content-tr" class="box-tr hidden">
+        <h1>Tedarikçi Portalı</h1>
+        <p>Birinci sınıf malzeme tedariki için bize katılın. Güven ve dürüstlük bizim temel ilkemizdir.</p>
+        <span class="info-title">Yönetici:</span> Babar Ali<br>
+        <span class="info-title">İletişim:</span> 0303-7391681<br>
+        <span class="info-title">WhatsApp:</span> 0316-6479910
+    </div>
+
+    <!-- Chinese -->
+    <div id="content-zh" class="box-zh hidden">
+        <h1>供应商门户</h1>
+        <p>加入我们，供应优质材料。我们信奉信任和诚信。</p>
+        <span class="info-title">管理员:</span> Babar Ali<br>
+        <span class="info-title">联系电话:</span> 0303-7391681<br>
+        <span class="info-title">WhatsApp:</span> 0316-6479910
+    </div>
+
+    <!-- Arabic -->
+    <div id="content-ar" class="box-ar hidden">
+        <h1>بوابة الموردين</h1>
+        <div style="border-bottom: 2px solid #333; padding-bottom: 10px;">
+            <p>انضم إلينا لتوريد مواد عالية الجودة. نحن نؤمن بالثقة والنزاهة.</p>
+        </div>
+        <span class="info-title">المدير:</span> بابر علي<br>
+        <span class="info-title">رقم الاتصال:</span> 0303-7391681<br>
+        <span class="info-title">واتساب:</span> 0316-6479910
+    </div>
+</div>
+
+<script>
+    function show(lang) {
+        document.querySelectorAll('[id^=content-]').forEach(b => b.classList.add('hidden'));
+        document.getElementById('content-' + lang).classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>

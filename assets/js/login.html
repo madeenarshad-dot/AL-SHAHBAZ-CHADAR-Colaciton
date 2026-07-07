@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login - AL-SHAHBAZ CHADAR HOUSE</title>
+
+<style>
+body{
+  font-family:Poppins, sans-serif;
+  background:#f5f5f5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  margin:0;
+}
+
+.box{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  width:300px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:black;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>🔐 Login</h2>
+
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<script>
+// ================= LOGIN =================
+function login(){
+
+  let u = document.getElementById("user").value.trim();
+  let p = document.getElementById("pass").value.trim();
+
+  if(!u || !p){
+    alert("⚠️ Please fill all fields");
+    return;
+  }
+
+  // fake users database (demo)
+  let users = [
+    {username:"admin", password:"1234"},
+    {username:"user", password:"1111"}
+  ];
+
+  let found = users.find(x => x.username === u && x.password === p);
+
+  if(found){
+
+    localStorage.setItem("currentUser", JSON.stringify({
+      username: u,
+      loginTime: new Date().toLocaleString()
+    }));
+
+    alert("Login Successful ✅");
+
+    window.location.href = "index.html";
+
+  } else {
+    alert("❌ Invalid username or password");
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="siteTitle">AL-SHAHBAZ CHADAR HOUSE | Premium Showroom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style id="dynamicStyle">
+        :root { --gold: #ffd700; --blue: #0d47a1; --white: #fff; --dark: #333; --red: #d32f2f; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: #f7f7f7; }
+        
+        /* 3D ایفیکٹس کا اضافہ */
+        .product-card { transition: transform 0.4s ease, box-shadow 0.4s ease !important; }
+        .product-card:hover { transform: perspective(1000px) rotateX(5deg) translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.2) !important; }
+        .btn { transition: transform 0.3s ease !important; }
+        .btn:hover { transform: scale(1.05); }
+
+        /* بقیہ تمام کوڈ آپ کا اصل والا */
+        .header-main { display: flex; align-items: center; padding: 15px 50px; background: #fff; border-bottom: 2px solid #eee; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--red); display: flex; align-items: center; margin-right: 30px; }
+        .logo span { font-size: 40px; color: var(--red); font-style: italic; margin-right: 5px; }
+        .trans-container { position: relative; margin-right: 20px; }
+        .trans-btn { background: var(--red); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        #google_translate_element { position: absolute; top: 45px; left: 0; z-index: 9999; display: none; background: white; border: 1px solid var(--red); padding: 5px; }
+        .search-container { display: flex; flex-grow: 1; border: 2px solid var(--red); border-radius: 4px; overflow: hidden; max-width: 600px; }
+        .search-container input { padding: 10px; border: none; flex-grow: 1; outline: none; }
+        .search-container button { padding: 10px 25px; background: var(--red); color: white; border: none; cursor: pointer; }
+        .nav-icons { display: flex; gap: 20px; margin-left: 20px; font-size: 12px; color: #333; }
+        .nav-icons a { text-decoration: none; color: #333; text-align: center; cursor: pointer; }
+        .extra-nav { display: flex; padding: 10px 50px; background: #fff; border-bottom: 1px solid #eee; gap: 25px; font-size: 13px; }
+        .extra-nav a { text-decoration: none; color: #555; }
+        .top-banner { background: var(--blue); color: var(--gold); text-align: center; padding: 10px; font-weight: 600; font-size: 0.8rem; }
+        .social-bar { background: var(--gold); text-align: center; padding: 8px; }
+        .social-bar a { color: black; text-decoration: none; margin: 0 8px; font-weight: 600; font-size: 0.8rem; }
+        .admin-bar { background: #333; color: var(--gold); text-align: center; padding: 10px; font-weight: bold; border-bottom: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .admin-bar img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+        .admin-bar a { color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 5px 15px; border-radius: 4px; font-weight: 600; margin-left: 10px; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; background: white; border-bottom: 3px solid var(--gold); }
+        header h2 { margin: 0; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--blue); }
+        header nav a { margin: 0 10px; text-decoration: none; color: #333; font-weight: 600; }
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; transition: background 1.5s ease-in-out; background: url("https://i.ibb.co/DgGmPSGj/chadar1-jpg.jpg"); background-size: cover; background-position: center; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 0; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
+        .btn { display: inline-block; padding: 15px 30px; margin: 10px; background: var(--blue); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; border: none; }
+        .gallery-section { padding: 50px 20px; text-align: center; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .product-card { border: 1px solid #ddd; padding: 15px; background: white; border-radius: 12px; }
+        .product-card img { width: 100%; height: 350px; object-fit: cover; border-radius: 8px; }
+        .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; z-index: 1000; }
+        footer { background: var(--blue); color: white; padding: 40px 20px; text-align: center; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+<!-- آپ کا پورا باڈی کا حصہ بغیر کسی تبدیلی کے -->
+<header class="header-main">
+    <div class="logo"><span>A</span>AL-SHAHBAZ</div>
+    <div class="trans-container">
+        <button class="trans-btn" onclick="showTranslate()">🌐 Translation</button>
+        <div id="google_translate_element"></div>
+    </div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for products...">
+        <button id="searchButton" onclick="searchProducts()">🔍</button>
+    </div>
+    <div class="nav-icons">
+        <a href="https://wa.me/923166479910">📋<br>Post Request</a>
+
+  <a href="javascript:void(0)" onclick="document.getElementById('message-inbox').style.display='block'">✉️<br>Messages</a>
+       <a href="javascript:void(0)" onclick="document.getElementById('basket-box').style.display='block'">🛒<br>Inquiry Basket</a>
+    </div>
+</header>
+<div class="extra-nav">
+    <a href="categories.html">☰ All Categories</a>
+    <a href="sourcing.html">Sourcing AI</a>
+    <a href="more.html">More ▾</a>
+    <a href="supplier.html">Supplier ▾</a>
+    <a href="buyer.html">Buyer ▾</a>
+</div>
+<div class="top-banner" id="bannerDisplay">🧣 NEW WINTER COLLECTION 2026 IS LIVE</div>
+<div class="social-bar">
+    <a href="https://www.facebook.com/share/193wPi512U/" target="_blank">FB Page 1</a> | 
+    <a href="https://www.facebook.com/share/18qm7n2hUc/" target="_blank">FB Page 2</a> | 
+    <a href="https://www.youtube.com/@AbbasAfzal-w6p" target="_blank">YouTube</a> | 
+    <a href="https://www.instagram.com/shahbazaliblogs?igsh=N3hxMG9hcDM1Y3Nh" target="_blank">Instagram</a>
+</div>
+<div class="admin-bar">
+    <img src="https://i.ibb.co/VcScS0xJ/admin-jpg.jpg" alt="Admin 1">
+    <img src="https://i.ibb.co/6RpLsgBc/Whats-App-Image-2026-07-05-at-6-56-00-AM.jpg" alt="Admin 2">
+    <span>ADMIN: Abbas Muhammad Afzal</span>
+    <a href="admin.html">Go to Admin Panel</a>
+</div>
+<style>
+    /* تصویر لگانے کا درست طریقہ */
+    .hero {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        /* تصویر کا پاتھ */
+        background-image: url('assets/images/hero-image.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    /* ٹیکسٹ کو نمایاں کرنے کے لیے */
+    .hero div {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+    }
+</style>
+
+<header>
+    <h2 id="siteTitleText">AL-SHAHBAZ CHADAR HOUSE</h2>
+    <nav>
+        <a href="index.html">Home</a><a href="clothes.html">Clothes</a><a href="outfits.html">Outfits</a><a href="trends.html">Trends 2026</a><a href="contacts.html">Contacts</a>
+    </nav>
+</header>
+
+<section class="hero" id="heroSection">
+    <div>
+        <h1 id="heroTitle">Premium Collection</h1>
+        <p>Luxury • Style • Comfort</p>
+        <a class="btn" href="clothes.html">Shop Now</a>
+    </div>
+</section>
+
+<section class="gallery-section">
+    <h2>Our Premium Collection</h2>
+</section>
+    <div class="product-grid" id="productGrid">
+        <div class="product-card"><h3>Premium Shawl</h3><img src="https://i.ibb.co/DgGmPSGj/chadar1-jpg.jpg"></div>
+        <div class="product-card"><h3>Luxury Woolen</h3><img src="https://i.ibb.co/TMfK6W1D/chadar2-jpg.jpg"></div>
+        <div class="product-card"><h3>Casual Cotton</h3><img src="https://i.ibb.co/JW0FX0XB/chadar3-jpg.jpg"></div>
+        <div class="product-card"><h3>Exclusive Winter</h3><img src="https://i.ibb.co/sdMP16ts/chadar4-jpg.jpg"></div>
+    </div>
+</section>
+<a class="whatsapp" href="https://wa.me/923166479910" target="_blank">💬 Order on WhatsApp</a>
+<footer><h3>AL-SHAHBAZ CHADAR HOUSE</h3><p>© 2026 AL-SHAHBAZ CHADAR HOUSE - ALL RIGHTS RESERVED</p></footer>
+
+<!-- اسکرپٹ وہی ہیں جو آپ نے بھیجے تھے -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+    const firebaseConfig = { apiKey: "AIzaSyB9pUtHQZYkwYbdDx2UEdmE6h0Qs8jJ4aA", authDomain: "al-shahbaz-control.firebaseapp.com", databaseURL: "https://al-shahbaz-control-default-rtdb.firebaseio.com", projectId: "al-shahbaz-control", storageBucket: "al-shahbaz-control.firebasestorage.app", messagingSenderId: "255309558541", appId: "1:255309558541:web:143b3ce61a93e8f4c5b644", measurementId: "G-MQK3HVQ202" };
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    onValue(ref(db, 'content'), (snapshot) => { const data = snapshot.val(); if(data) { if(data.title) document.getElementById('siteTitleText').innerText = data.title; if(data.banner) document.getElementById('bannerDisplay').innerText = data.banner; } });
+    onValue(ref(db, 'flashMessage'), (snapshot) => { if(snapshot.val()) alert("📢 نوٹس: " + snapshot.val()); });
+    window.searchProducts = function() { let input = document.getElementById('searchInput').value.toLowerCase(); let cards = document.getElementsByClassName('product-card'); for (let i = 0; i < cards.length; i++) { let title = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase(); cards[i].style.display = title.includes(input) ? "block" : "none"; } }
+    const images = ['url("https://i.ibb.co/DgGmPSGj/chadar1-jpg.jpg")', 'url("https://i.ibb.co/TMfK6W1D/chadar2-jpg.jpg")', 'url("https://i.ibb.co/JW0FX0XB/chadar3-jpg.jpg")', 'url("https://i.ibb.co/sdMP16ts/chadar4-jpg.jpg")'];
+    let i = 0;
+    const heroSection = document.getElementById('heroSection');
+    setInterval(() => { i = (i + 1) % images.length; heroSection.style.backgroundImage = images[i]; }, 4000);
+</script>
+<script type="text/javascript">
+function showTranslate() { var element = document.getElementById('google_translate_element'); element.style.display = (element.style.display === 'block') ? 'none' : 'block'; }
+function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'ur,hi,ar,fa,en,bn,tr,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div id="ai-chat-btn" onclick="document.getElementById('ai-assistant').style.display='block'" style="position:fixed; top:100px; right:20px; background:#0d47a1; color:white; padding:12px 20px; border-radius:30px; cursor:pointer; z-index:99999; box-shadow:0 4px 8px rgba(0,0,0,0.3); font-family:sans-serif; font-size:14px; font-weight:bold;">🤖 AI Assistant</div>
+<div id="ai-assistant" style="display:none; position:fixed; top:150px; right:20px; width:300px; background:#fff; border:2px solid #0d47a1; border-radius:10px; z-index:99999; box-shadow:0 0 15px rgba(0,0,0,0.3); font-family:sans-serif;">
+    <div style="background:#0d47a1; color:white; padding:10px; border-top-left-radius:8px; border-top-right-radius:8px; display:flex; justify-content:space-between;"><span>AL-SHAHBAZ AI</span><span onclick="document.getElementById('ai-assistant').style.display='none'" style="cursor:pointer;">❌</span></div>
+    <div id="chat-box" style="padding:10px; height:200px; overflow-y:auto; font-size:14px; background:#f4f4f4;"><p><b>AI:</b> Welcome to Al-Shahbaz! How can I help you today?</p></div>
+    <div style="padding:5px; border-top:1px solid #ddd;"><input type="text" id="user-input" placeholder="Type your question..." style="width:70%; padding:8px; border:1px solid #ddd; border-radius:4px;"><button onclick="getAIResponse()" style="padding:8px 12px; background:#ffd700; border:none; cursor:pointer; border-radius:4px; font-weight:bold;">Send</button></div>
+</div>
+<script>
+function getAIResponse() {
+    let input = document.getElementById('user-input').value.toLowerCase();
+    let chatBox = document.getElementById('chat-box');
+    if(input.trim() == "") return;
+    let isUrdu = /[\u0600-\u06FF]/.test(input);
+    let res = isUrdu ? "معذرت، مزید تفصیل کے لیے واٹس ایپ 03166479910 پر رابطہ کریں۔" : "Sorry, for more details please contact us on WhatsApp: 03166479910.";
+    if (isUrdu) {
+        if(input.includes("قیمت") || input.includes("ریٹ") || input.includes("مالیت")) res = "ہماری چادروں کی مالیت کوالٹی کے حساب سے بہت مناسب ہے۔ رابطہ: 03166479910";
+        else if(input.includes("کوالٹی") || input.includes("وول") || input.includes("پشم")) res = "ہم 100% پیور اون اور بہترین پشم استعمال کرتے ہیں۔";
+        else if(input.includes("ایڈمن")) res = "ایڈمن کا نام عباس محمد افضل ہے۔";
+        else if(input.includes("رابطہ") || input.includes("نمبر")) res = "ہمارا رابطہ نمبر 03166479910 ہے۔";
+        else if(input.includes("رنگ") || input.includes("کلر")) res = "ہمارے پاس گولڈن، بلیک اور تمام رائل کلرز موجود ہیں۔";
+    } else {
+        if(input.includes("price") || input.includes("rate") || input.includes("cost")) res = "Our prices are very competitive. Contact us at 03166479910.";
+        else if(input.includes("quality") || input.includes("wool")) res = "We use 100% pure wool and premium pashmina.";
+        else if(input.includes("admin")) res = "The admin is Abbas Muhammad Afzal.";
+        else if(input.includes("contact") || input.includes("number")) res = "You can contact our admin at 03166479910.";
+        else if(input.includes("color")) res = "We offer royal gold, black, and various premium colors.";
+    }
+    chatBox.innerHTML += "<p style='margin:5px 0;'><b>You:</b> " + input + "</p><p style='margin:5px 0; color:#0d47a1;'><b>AI:</b> " + res + "</p>";
+    document.getElementById('user-input').value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+</script>
+</body>
+<!-- Admin Messages Box -->
+<div id="message-inbox" style="display:none; position:fixed; top:150px; right:20px; width:300px; background:#fff; border:2px solid #d32f2f; border-radius:10px; z-index:99999; box-shadow:0 0 15px rgba(0,0,0,0.3); font-family:sans-serif;">
+    <div style="background:#d32f2f; color:white; padding:10px; border-top-left-radius:8px; border-top-right-radius:8px; display:flex; justify-content:space-between;">
+        <span>📢 Admin Messages</span>
+        <span onclick="document.getElementById('message-inbox').style.display='none'" style="cursor:pointer;">❌</span>
+    </div>
+    <div id="msg-list" style="padding:15px; height:200px; overflow-y:auto; background:#f9f9f9; font-size:14px;">
+        <p>کوئی نیا پیغام نہیں ہے۔</p>
+    </div>
+</div>
+
+<script type="module">
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+    const d = getDatabase();
+    
+    // Firebase سے میسجز فیچ کرنے کا فنکشن
+    onValue(ref(db, 'notifications'), (snapshot) => {
+        const msgList = document.getElementById('msg-list');
+        if(snapshot.exists()) {
+            msgList.innerHTML = "";
+            snapshot.forEach((child) => {
+                msgList.innerHTML += "<p style='border-bottom:1px solid #ddd; padding:5px 0;'>" + child.val().text + "</p>";
+            });
+        }
+    });
+</script>
+</body>
+<!-- Inquiry Basket: سائیڈ بار ڈیزائن -->
+<div id="basket-box" style="display:none; position:fixed; top:0; left:0; width:300px; height:100%; background:#fff; border-right:5px solid #ffd700; z-index:99999; box-shadow:5px 0 15px rgba(0,0,0,0.3); padding:20px; font-family:sans-serif;">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #ffd700; padding-bottom:10px;">
+        <h2 style="margin:0; color:#333;">🛒 My Basket</h2>
+        <span onclick="document.getElementById('basket-box').style.display='none'" style="cursor:pointer; font-size:24px;">✖️</span>
+    </div>
+    
+    <div id="basket-list" style="padding:20px 0; height:70%; overflow-y:auto;">
+        <p id="empty-msg" style="color:#777; text-align:center;">آپ کی باسکٹ فی الحال خالی ہے۔</p>
+    </div>
+
+    <button onclick="sendBasketToWhatsApp()" style="width:100%; padding:15px; background:#25D366; color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:16px;">
+        Send to WhatsApp 💬
+    </button>
+</div>
+
+<script>
+// باسکٹ کا فنکشن
+let basketItems = [];
+function addToBasket(productName) {
+    basketItems.push(productName);
+    document.getElementById('empty-msg').style.display = 'none';
+    let list = document.getElementById('basket-list');
+    list.innerHTML += "<div style='padding:10px; border-bottom:1px solid #eee; display:flex; justify-content:space-between;'>" + productName + "<span>✅</span></div>";
+    alert(productName + " باسکٹ میں شامل ہو گئی!");
+}
+
+function sendBasketToWhatsApp() {
+    if(basketItems.length === 0) { alert("باسکٹ خالی ہے!"); return; }
+    let message = "السلام علیکم، مجھے یہ اشیاء چاہیے: " + basketItems.join(", ");
+    window.open("https://wa.me/923166479910?text=" + encodeURIComponent(message), "_blank");
+}
+</script>
+</body>
+</html>
+

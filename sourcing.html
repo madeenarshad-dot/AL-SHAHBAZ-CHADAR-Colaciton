@@ -1,0 +1,52 @@
+<section style="padding: 40px 20px; background: #fff; border-radius: 15px; max-width: 800px; margin: 20px auto; text-align: left; border: 2px solid #ffd700;">
+    <h2 style="color: #0d47a1; text-align: center;">🧣 AL-SHAHBAZ AI Assistant</h2>
+    <p style="text-align: center;">Ask anything about our quality, prices, or product usage.</p>
+
+    <!-- Chat Display -->
+    <div id="chatBox" style="height: 300px; overflow-y: scroll; background: #f9f9f9; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; text-align: left; border-radius: 10px; font-family: 'Poppins', sans-serif;">
+        <p style="color: #333;"><b>AI Assistant:</b> Welcome to Al-Shahbaz Chadar House! How can I assist you with our premium collection today?</p>
+    </div>
+
+    <!-- Input Area -->
+    <div style="display: flex; gap: 10px;">
+        <input type="text" id="userInput" placeholder="e.g., What is the price of your shawls?" style="padding: 12px; flex-grow: 1; border-radius: 5px; border: 1px solid #ccc;">
+        <button onclick="askAI()" style="padding: 12px 20px; background: #d32f2f; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Ask</button>
+    </div>
+</section>
+
+<script>
+    // Knowledge Base: You can add more questions and answers here
+    const knowledgeBase = {
+        "price": "Our premium shawls range from PKR 2,500 to PKR 5,000. Are you looking for a specific variety?",
+        "quality": "We use pure cotton and high-quality wool. Our fabrics are durable, color-fast, and designed for long-term comfort.",
+        "usage": "Our products are perfect for weddings, traditional ceremonies, and daily use during the winter season.",
+        "cotton": "Our cotton collection is breathable and ideal for summers and mild winter weather.",
+        "wool": "Our wool collection is specially crafted for extreme winters, providing excellent warmth with a lightweight feel.",
+        "hello": "Hello! Welcome to Al-Shahbaz Chadar House. I'm here to help you find the best quality.",
+        "thanks": "You're very welcome! We are proud to serve you at Al-Shahbaz Chadar House."
+    };
+
+    function askAI() {
+        const inputField = document.getElementById('userInput');
+        const input = inputField.value.toLowerCase();
+        const chatBox = document.getElementById('chatBox');
+        
+        if(input.trim() === "") return;
+
+        chatBox.innerHTML += `<p style="margin-bottom: 5px;"><b>You:</b> ${inputField.value}</p>`;
+        
+        let response = "I'm sorry, I couldn't quite understand that. Please contact our admin via the WhatsApp button for personalized assistance!";
+        
+        // Search logic
+        for (let key in knowledgeBase) {
+            if (input.includes(key)) {
+                response = knowledgeBase[key];
+                break;
+            }
+        }
+        
+        chatBox.innerHTML += `<p style="color: #0d47a1; margin-bottom: 15px;"><b>Al-Shahbaz AI:</b> ${response}</p>`;
+        inputField.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+</script>
